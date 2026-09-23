@@ -52,6 +52,20 @@ chmod +x NeonDodge.desktop
 
 If your folder is stored somewhere other than `/home/pi/pi_neon_dodge`, update the `Exec` and `Path` lines accordingly.
 
+## Multi-EXE launcher
+
+This repository also includes **Neon Launchpad**, a small desktop launcher for starting multiple Windows `.exe` programs in one go. It is useful for a game setup, a local development stack, or any group of tools that should open together.
+
+Run it with Python:
+
+```bash
+python3 launcher.py
+```
+
+In the launcher, add one row per program, use **Browse** to choose each executable, optionally enter command-line arguments and a working directory, then click **Launch enabled**. The profile is saved automatically to `~/.neon-launchpad/launchers.json`. **Stop all** terminates programs started by the current launcher session.
+
+The launcher uses only Python's standard library (`tkinter`, `subprocess`, and `json`), so no extra Python packages are required. It is intended to run on Windows when launching `.exe` files; it can also launch native executables on Linux for development and testing.
+
 ## Performance notes
 
 The game uses a fixed 800×480 window, simple rectangles and polygons, a 60 FPS update target, and no external assets. These choices keep the game responsive on Raspberry Pi 3 hardware. If the game feels slow, close other desktop applications and set the game window to a smaller size through the display settings.
